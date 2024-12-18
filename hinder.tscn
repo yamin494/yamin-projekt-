@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp3cangedbo7p"]
+
+[ext_resource type="Script" path="res://Hinder.cs" id="1_d5nkj"]
+[ext_resource type="Texture2D" uid="uid://bkrpyba00a355" path="res://Flappy hinder.png" id="1_sct0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krh6h"]
+size = Vector2(121, 364)
+
+[node name="Hinder" type="StaticBody2D"]
+position = Vector2(-13, -281)
+script = ExtResource("1_d5nkj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 4)
+texture = ExtResource("1_sct0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -10)
+shape = SubResource("RectangleShape2D_krh6h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(9, -12)
+scale = Vector2(4.925, 17.85)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-2, 545)
+rotation = 3.14159
+texture = ExtResource("1_sct0s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 555)
+scale = Vector2(0.87938, 1.00961)
+shape = SubResource("RectangleShape2D_krh6h")

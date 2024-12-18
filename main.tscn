@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://tbayy6rlqnrd"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_o2ohf"]
+[ext_resource type="PackedScene" uid="uid://dgbw0n1lobsmt" path="res://Bird.tscn" id="1_uxxjr"]
+[ext_resource type="Texture2D" uid="uid://dk113ue80rn16" path="res://Flappy bird background.png" id="4_i07hx"]
+[ext_resource type="PackedScene" uid="uid://cp3cangedbo7p" path="res://hinder.tscn" id="5_j7gaj"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_o2ohf")
+pipeScene = ExtResource("5_j7gaj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(621, 345)
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("4_i07hx")
+
+[node name="Bird" parent="." instance=ExtResource("1_uxxjr")]
+position = Vector2(231, 355)
+
+[node name="Hinder" parent="." instance=ExtResource("5_j7gaj")]
+position = Vector2(671, 77)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.739
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1108, 194)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.19
+anchor_top = 0.083
+anchor_right = 0.19
+anchor_bottom = 0.083
+offset_left = -102.88
+offset_top = -33.784
+offset_right = 217.12
+offset_bottom = 33.216
+text = "Poäng: "
+
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
